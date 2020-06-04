@@ -26,3 +26,10 @@ Auth::routes();
 ]);*/
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=>'auth'], function(){
+	Route::group(['prefix'=>'user'], function(){	
+		// Route::get('/dashboard', ['uses'=>'PostsController@create', 'as'=>'post.create']);
+		Route::get('/', function () {return view('user.index'); })->name('user.dashboard.index'); 
+	});
+});
