@@ -65,7 +65,7 @@ Mailbox
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true" style="margin-left: -10px"></span>
                         </div>
                         <div class="form-group">
-                            <textarea name="body" id="body" class="form-control editor"></textarea>
+                            <textarea name="body" id="body" class="d-none editor"></textarea>
                         </div>
                         <button type="submit" class="btn btn-success btn-sm">Send Message</button>
                     </form>
@@ -75,16 +75,17 @@ Mailbox
 @section('style')
     <!-- Select2 -->
     <link href="{{ asset('admin/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
-    <!-- bootstrap-wysiwyg -->
-    <link href="{{ asset('admin/vendors/google-code-prettify/bin/prettify.min.css') }}" rel="stylesheet">
+    <!-- wysiwyg -->
+    <link href="{{ asset('admin/vendors/wysiwyg/wysiwyg.css') }}" rel="stylesheet">
+    <style>
+        .editor-statusbar-path{display: none!important}
+    </style>
 @endsection
 @section('script')
     <!-- Select2 -->
     <script src="{{ asset('admin/vendors/select2/dist/js/select2.full.min.js') }}"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="{{ asset('admin/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/jquery.hotkeys/jquery.hotkeys.js') }}"></script>
-    <script src="{{ asset('admin/vendors/google-code-prettify/src/prettify.js') }}"></script>
+    <!-- wysiwyg -->
+    <script src="{{ asset('admin/vendors/wysiwyg/wysiwyg.js') }}"></script>
     <!-- Parsley -->
     <script src="{{ asset('admin/vendors/parsleyjs/dist/parsley.min.js') }}"></script>
     <script>
@@ -94,7 +95,22 @@ Mailbox
             placeholder: "You can select multiple members.",
             allowClear: true
         });
-        $('.editor').wysiwyg();
+        $('.editor').wysiwyg({
+            toolbar: [
+                ['mode'],
+                ['operations', ['undo', 'rendo', 'cut', 'copy', 'paste']],
+                ['styles'],
+                ['fonts', ['select', 'size']],
+                ['text', ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'font-color', 'bg-color']],
+                ['align', ['left', 'center', 'right', 'justify']],
+                ['lists', ['unordered', 'ordered', 'indent', 'outdent']],
+                ['components', ['table', /*'chart'*/]],
+                ['intervals', ['line-height', 'letter-spacing']],
+                /*['insert', ['emoji', 'link', 'image', 'video', 'symbol', 'bookmark']],*/
+                ['special', ['print', 'unformat', 'visual', 'clean']],
+                /*['fullscreen'],*/
+            ],
+        });
         $('#email-form').parsley().on('field:validated', function() {
             var ok = $('.parsley-error').length === 0;
             $('.bs-callout-info').toggleClass('hidden', !ok);
