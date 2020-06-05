@@ -15,10 +15,11 @@
     <!-- Bootstrap -->
     <link href="{{ asset('admin/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{ asset('admin/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/vendors/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
     <link href="{{ asset('admin/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
-
+    <!-- Style for this page -->
+    @yield('style')
     <!-- Custom Theme Style -->
     <link href="{{ asset('admin/build/css/custom.min.css') }}" rel="stylesheet">
   </head>
@@ -47,7 +48,7 @@
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="{{ asset('admin/production/images/img.jpg') }}" alt="">John Doe
+                      <img src="{{ asset('admin/production/images/img.jpg') }}" alt="">{{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -138,7 +139,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Plain Page</h3>
+                <h3>@yield('page-title')</h3>
               </div>
 
               <div class="title_right">
@@ -154,33 +155,7 @@
             </div>
 
             <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12  ">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Plain Page</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                      @yield('content')
-                  </div>
-                </div>
-              </div>
-            </div>
+            @yield('content')
           </div>
         </div>
         <!-- /page content -->
@@ -188,7 +163,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            Mos MLM Solution -  by <a href="https://www.mdmostakshahid.me" target="_blank">Md. Mostak Shahid</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -204,8 +179,9 @@
     <script src="{{ asset('admin/vendors/fastclick/lib/fastclick.js') }}"></script>
     <!-- NProgress -->
     <script src="{{ asset('admin/vendors/nprogress/nprogress.js') }}"></script>
-    
+    <!-- Scripts for this page -->
+    @yield('script')
     <!-- Custom Theme Scripts -->
-    <script src="{{ asset('admin/build/js/custom.min.js') }}"></script>
+    <!-- <script src="{{ asset('admin/build/js/custom.min.js') }}"></script> -->
   </body>
 </html>

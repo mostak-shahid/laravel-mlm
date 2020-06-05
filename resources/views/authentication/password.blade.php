@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('page-title')
-Overview
+Change Lohin Password
 @endsection
 @section('sidebar')
 @include('user.menu')
@@ -26,7 +26,7 @@ Overview
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-        You are logged in!
+        Change Login Password
     </div>
 </div>
 @endsection

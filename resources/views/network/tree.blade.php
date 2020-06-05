@@ -26,7 +26,7 @@ Overview
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-        You are logged in!
+        Tree View
     </div>
 </div>
 @endsection

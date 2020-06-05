@@ -73,7 +73,7 @@ User Menu
 				</li>
 				<li>
 					<a href="https://backoffice.infinitemlmsoftware.com/backoffice/user/my_transfer_details">
-						<span>Transfer History </span>
+						<span>Transfer History</span>
 					</a>
 				</li>
 			</ul>
