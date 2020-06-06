@@ -18,10 +18,12 @@
     <link href="{{ asset('admin/vendors/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
     <link href="{{ asset('admin/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <!-- toastr -->
+    <link href="{{ asset('admin/vendors/toastr/toastr.min.css') }}" rel="stylesheet">
     <!-- Style for this page -->
     @yield('style')
     <!-- Custom Theme Style -->
-    <link href="{{ asset('admin/build/css/custom.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/build/css/custom.css') }}" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -48,7 +50,7 @@
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="{{ asset('admin/production/images/img.jpg') }}" alt="">{{ Auth::user()->name }}
+                      <img src="{{ asset('admin/production/images/img.jpg') }}" alt="{{ Auth::user()->name }}">{{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -179,9 +181,16 @@
     <script src="{{ asset('admin/vendors/fastclick/lib/fastclick.js') }}"></script>
     <!-- NProgress -->
     <script src="{{ asset('admin/vendors/nprogress/nprogress.js') }}"></script>
+    <!-- toastr -->
+    <script src="{{ asset('admin/vendors/toastr/toastr.min.js') }}"></script>
     <!-- Scripts for this page -->
     @yield('script')
+    @if(Session::has('success'))
+      <script>      
+        toastr.success('{{Session::get('success')}}', 'Success!');
+      </script>
+    @endif
     <!-- Custom Theme Scripts -->
-    <!-- <script src="{{ asset('admin/build/js/custom.min.js') }}"></script> -->
+    <script src="{{ asset('admin/build/js/custom.js') }}"></script>
   </body>
 </html>

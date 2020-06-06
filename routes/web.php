@@ -59,6 +59,7 @@ Route::group(['middleware'=>'auth'], function(){
 
 		Route::get('/mailbox/', 'MailboxController@index')->name('user.mailbox.index');
 		Route::get('/mailbox/compose', 'MailboxController@compose')->name('user.mailbox.compose');
+		Route::post('/mailbox/store', 'MailboxController@store')->name('user.mailbox.store');
 		Route::get('/mailbox/starred', 'MailboxController@starred')->name('user.mailbox.starred');
 		Route::get('/mailbox/sent', 'MailboxController@index')->name('user.mailbox.sent');
 		Route::get('/mailbox/draft', 'MailboxController@index')->name('user.mailbox.draft');

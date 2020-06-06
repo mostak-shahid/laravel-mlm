@@ -10,23 +10,11 @@ Mailbox
 <div class="x_panel">
     <div class="x_content">
         <div class="row">
-            <div class="col-sm-3 mail_list_column">                
-                <a href="{{ route('user.mailbox.compose')}}" id="compose" class="btn btn-sm btn-success btn-block" type="button">COMPOSE</a>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-0"><a class="text-black py-3" href="{{ route('user.mailbox.index') }}">Inbox</a> <span class="badge badge-primary badge-pill">14</span></li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-0"><a class="text-black py-3" href="{{ route('user.mailbox.starred') }}">Starred</a> <span class="badge badge-primary badge-pill">14</span></li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-0"><a class="text-black py-3" href="{{ route('user.mailbox.sent') }}">Sent</a> <span class="badge badge-primary badge-pill">14</span></li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-0"><a class="text-black py-3" href="{{ route('user.mailbox.draft') }}">Drafts</a> <span class="badge badge-primary badge-pill">14</span></li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-0"><a class="text-black py-3" href="{{ route('user.mailbox.spam') }}">Spam</a> <span class="badge badge-primary badge-pill">14</span></li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-0"><a class="text-black py-3" href="{{ route('user.mailbox.trash') }}">Trash</a></li>
-                </ul>
-            </div>
-            <!-- /MAIL LIST -->
-
+            @include('mailbox.menu')
             <!-- CONTENT MAIL -->
             <div class="col-sm-9 mail_view">
                 <div class="inbox-body">
-                    <form id="email-form" data-parsley-validate>
+                    <form method="post" action="{{ route('user.mailbox.store') }}" id="email-form" data-parsley-validate>
                         @csrf
                         <div class="form-group">
                             <label for="subject">Subject <span class="text-danger">*</span></label>
@@ -53,19 +41,19 @@ Mailbox
                                 </div>                                 
                             </div>        
                         </div>
-                        <div class="form-group">
+                        <div id="members-group" class="form-group">
                             <select name="members[]" id="members" class="form-control select2_multiple" multiple>
                                 <option value="3">Md. Shahid Apu</option>
                                 <option value="2">Md. Mostak Apu</option>
                                 <option value="1">Md. Mostak Shahid</option>
                             </select>        
                         </div>
-                        <div class="form-group position-relative has-feedback">
+                        <div id="to-group" class="form-group position-relative has-feedback">
                             <input type="text" class="form-control has-feedback-left" id="to" name="to" placeholder="user@example.com">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true" style="margin-left: -10px"></span>
                         </div>
                         <div class="form-group">
-                            <textarea name="body" id="body" class="d-none editor"></textarea>
+                            <textarea name="message" id="message" class="form-control editor"></textarea>
                         </div>
                         <button type="submit" class="btn btn-success btn-sm">Send Message</button>
                     </form>
@@ -75,17 +63,13 @@ Mailbox
 @section('style')
     <!-- Select2 -->
     <link href="{{ asset('admin/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
-    <!-- wysiwyg -->
-    <link href="{{ asset('admin/vendors/wysiwyg/wysiwyg.css') }}" rel="stylesheet">
-    <style>
-        .editor-statusbar-path{display: none!important}
-    </style>
 @endsection
 @section('script')
     <!-- Select2 -->
     <script src="{{ asset('admin/vendors/select2/dist/js/select2.full.min.js') }}"></script>
-    <!-- wysiwyg -->
-    <script src="{{ asset('admin/vendors/wysiwyg/wysiwyg.js') }}"></script>
+    <!-- ckeditor -->
+    <script src="{{ asset('admin/vendors/ckeditor4-major/ckeditor.js') }}"></script>
+    <script src="{{ asset('admin/vendors/ckeditor4-major/adapters/jquery.js') }}"></script>
     <!-- Parsley -->
     <script src="{{ asset('admin/vendors/parsleyjs/dist/parsley.min.js') }}"></script>
     <script>
@@ -95,30 +79,42 @@ Mailbox
             placeholder: "You can select multiple members.",
             allowClear: true
         });
-        $('.editor').wysiwyg({
-            toolbar: [
-                ['mode'],
-                ['operations', ['undo', 'rendo', 'cut', 'copy', 'paste']],
-                ['styles'],
-                ['fonts', ['select', 'size']],
-                ['text', ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'font-color', 'bg-color']],
-                ['align', ['left', 'center', 'right', 'justify']],
-                ['lists', ['unordered', 'ordered', 'indent', 'outdent']],
-                ['components', ['table', /*'chart'*/]],
-                ['intervals', ['line-height', 'letter-spacing']],
-                /*['insert', ['emoji', 'link', 'image', 'video', 'symbol', 'bookmark']],*/
-                ['special', ['print', 'unformat', 'visual', 'clean']],
-                /*['fullscreen'],*/
-            ],
+        $('#members-group,#to-group').hide();
+        $("input[name='type']").change(function(){
+            var type = $("input[name='type']:checked").val();
+            if(type == 'internal'){
+                $('#members-group').show().find('select').prop('required',true);
+                $('#to-group').hide().find('input').prop('required',false);
+            } else if(type == 'external'){
+                $('#members-group').hide().find('select').prop('required',false);
+                $('#to-group').show().find('input').prop('required',true);
+            } else{
+                $('#members-group').hide().find('select').prop('required',false);
+                $('#to-group').hide().find('input').prop('required',false);
+            }
+        });
+        /*
+        var radioValue = $("input[name='gender']:checked").val();
+        */
+        $('.editor').ckeditor({
+            toolbar:
+            [
+                ['Styles','Format', 'Font', 'FontSize'],
+                '/',
+                ['Bold','Italic','Underline','Strike','Subscript','Superscript','-','CopyFormatting','RemoveFormat'],
+                ['BulletedList','NumberedList','-','Indent','Outdent','-','Blockquote'],
+                ['Link','Unlink','Anchor'],
+                ['Table','HorizontalRule','Smiley','SpecialChar'],
+            ]// https://ckeditor.com/old/forums/CKEditor/Complete-list-of-toolbar-items
         });
         $('#email-form').parsley().on('field:validated', function() {
             var ok = $('.parsley-error').length === 0;
             $('.bs-callout-info').toggleClass('hidden', !ok);
             $('.bs-callout-warning').toggleClass('hidden', ok);
         })
-        .on('form:submit', function() {
+        /*.on('form:submit', function() {
             return false; // Don't submit form for this demo
-        });
+        });*/
         //https://parsleyjs.org/doc/examples.html
 
     });

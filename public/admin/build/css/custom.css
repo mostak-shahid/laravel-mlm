@@ -800,7 +800,30 @@
 
 .glyphicon-menu-up:before {
   content: "\e260"; }
-
+.hidden-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  filter: alpha(opacity=0); }
+.m-30 {
+  margin: 30px; }
+.mt-30 {
+  margin-top: 30px; }
+.mb-30 {
+  margin-bottom: 30px; }
+.ml-30 {
+  margin-left: 30px; }
+.mr-30 {
+  margin-right: 30px; }
+.my-30 {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+.mx-30 {
+  margin-left: 30px;
+  margin-right: 30px; }
 .left_col {
   background: #2A3F54; }
 
@@ -1240,12 +1263,12 @@ table.no-margin .progress {
   position: relative;
   min-height: 1px;
   float: left;
-  padding-right: 10px;
-  padding-left: 10px; }
+  /*padding-right: 10px;
+  padding-left: 10px;*/ }
 
 .row {
-  margin-right: -10px;
-  margin-left: -10px; }
+  /*margin-right: -10px;
+  margin-left: -10px;*/ }
 
 .grid_slider .col-md-6 {
   padding: 0 40px; }
@@ -2479,14 +2502,13 @@ h4.graph_title {
   font-weight: bold;
   line-height: 1.65857143; }
 
-.tile-stats .count, .tile-stats h3, .tile-stats p {
-  position: relative;
+.tile-stats .count, .tile-stats h3, .tile-stats h5, .tile-stats p {
   margin: 0;
   margin-left: 10px;
   z-index: 5;
   padding: 0; }
 
-.tile-stats h3 {
+.tile-stats h3,.tile-stats h5 {
   color: #BAB8B8; }
 
 .tile-stats p {
@@ -4413,7 +4435,7 @@ fieldset {
 
 .label-align {
   text-align: right; }
-
+.list-group-item.active>a{color:#ffffff}
 @media (max-width: 414px) {
   .item {
     display: block; }
@@ -4968,3 +4990,6 @@ ul.notifications {
 
 .calendar-exibit .calendar-table {
   padding: 0 0 4px 0; }
+.mos-left-tab-nav a.nav-link{padding-left: 0;padding-right: 2rem;}
+.mos-left-tab-nav a.nav-link.active{font-weight:700}
+.table-align-middle th, .table-align-middle td{vertical-align: middle;}

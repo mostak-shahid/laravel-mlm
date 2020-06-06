@@ -64,7 +64,7 @@
                       <li><a href="fixed_footer.html">FAQs</a></li>
                     </ul>
                   </li>
-                  <li><a href="{{ route('user.mailbox.index') }}"><i class="fa fa-clone"></i>Mailbox</a></li>
+                  <li><a href="{{ route('user.mailbox.index') }}"><i class="fa fa-envelope"></i>Mailbox</a></li>
                 </ul>
               </div>
             </div>
