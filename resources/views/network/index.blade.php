@@ -16,7 +16,10 @@ Genealogy Tree
                     <div class="input-group">
                         <input type="text" class="form-control" name="user_name" id="user_name" placeholder="MOS170549" value="MOS170549">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-primary rounded-0">Search</button>
+                            <button type="submit" class="btn btn-primary rounded-0">Search</button>
+                        </span>
+                        <span class="input-group-btn">
+                            <button type="reset" id="btn-reset" class="btn btn-primary rounded-0">Reset</button>
                         </span>
                     </div>
                 </form>
@@ -39,6 +42,7 @@ Genealogy Tree
         border-radius: 5px;
         overflow: auto;
         text-align: center;
+        min-height: 400px
     }
     .orgchart .second-menu-icon {
         transition: opacity .5s;
@@ -54,9 +58,9 @@ Genealogy Tree
     .orgchart .node .second-menu {
         display: none;
         position: absolute;
-        top: 0;
-        right: -70px;
-        border-radius: 35px;
+        top: 43px;
+        left: -10px;
+        right: -10px;
         box-shadow: 0 0 10px 1px #999;
         background-color: #fff;
         z-index: 1;
@@ -101,9 +105,9 @@ Genealogy Tree
       ]
     };
 
-    $('#chart-container').orgchart({
+    var oc = $('#chart-container').orgchart({
       'data' : datascource,
-      'visibleLevel': 4,
+      'visibleLevel': 2,
       'nodeContent': 'title',
       'nodeID': 'id',
       'createNode': function($node, data) {
@@ -114,9 +118,56 @@ Genealogy Tree
           }
         });
         var dir = "{{ asset('admin/vendors/OrgChart/')}}";
-        var secondMenu = '<div class="second-menu"><img class="avatar" src="'+dir+'/img/avatar/' + data.id + '.jpg"></div>';
+        var secondMenuHTML = '';
+        secondMenuHTML += '<div class="tooltipster-box">';
+        secondMenuHTML += '<div class="tooltipster-content">';
+        secondMenuHTML += '<div id="user_INF170549" class="p-2">';
+        secondMenuHTML += '<div class="text-center text-white bg-blue-sky">';
+        secondMenuHTML += '<img class="img-fluid img-circle mb-2" src="'+dir+'/img/avatar/' + data.id + '.jpg">';
+        secondMenuHTML += '<p class="user-meta mb-0">INF170549<br/>sam</p>';
+        secondMenuHTML += '</div>';
+        secondMenuHTML += '<div class="body_text_tree">';
+        secondMenuHTML += '<ul class="list-unstyled mb-2">';
+        secondMenuHTML += '<li class="d-table w-100">';
+        secondMenuHTML += '<div class="pull-right">2018/04/11</div>';
+        secondMenuHTML += '<div class="pull-left">Join Date: </div>';
+        secondMenuHTML += '</li>';
+        secondMenuHTML += '<li class="d-table w-100">';
+        secondMenuHTML += '<div class="pull-right">1550</div>';
+        secondMenuHTML += '<div class="pull-left">Left: </div>';
+        secondMenuHTML += '</li>';
+        secondMenuHTML += '<li class="d-table w-100">';
+        secondMenuHTML += '<div class="pull-right">300</div>';
+        secondMenuHTML += '<div class="pull-left">Right: </div>';
+        secondMenuHTML += '</li>';
+        secondMenuHTML += '<li class="d-table w-100">';
+        secondMenuHTML += '<div class="pull-right">1250</div>';
+        secondMenuHTML += '<div class="pull-left">Left Carry: </div>';
+        secondMenuHTML += '</li>';
+        secondMenuHTML += '<li class="d-table w-100">';
+        secondMenuHTML += '<div class="pull-right">0</div>';
+        secondMenuHTML += '<div class="pull-left">Right Carry: </div>';
+        secondMenuHTML += '</li>';
+        secondMenuHTML += '<li class="d-table w-100">';
+        secondMenuHTML += '<div class="pull-right">20420</div>';
+        secondMenuHTML += '<div class="pull-left">Personal PV: </div>';
+        secondMenuHTML += '</li>';
+        secondMenuHTML += '<li class="d-table w-100">';
+        secondMenuHTML += '<div class="pull-right">650</div>';
+        secondMenuHTML += '<div class="pull-left">Group PV: </div>';
+        secondMenuHTML += '</li>';
+        secondMenuHTML += '</ul>';
+        secondMenuHTML += '<div class="tooltip_rank">Platinum</div>';
+        secondMenuHTML += '</div>';
+        secondMenuHTML += '</div>';
+        secondMenuHTML += '</div>';
+        secondMenuHTML += '</div>';
+        var secondMenu = '<div class="second-menu">'+secondMenuHTML+'</div>';
         $node.append(secondMenuIcon).append(secondMenu);
       }
+    });
+    $('#btn-reset').on('click', function (argument) {
+        oc.init({ 'data': datascource });
     });
 
   });
