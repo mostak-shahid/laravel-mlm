@@ -158,6 +158,73 @@
 
             <div class="clearfix"></div>
             @yield('content')
+            <div class="clearfix"></div>            
+            <div class="x_panel h-100">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><i class="fa fa-check-circle"></i> You are viewing shared demo. Multiple users may try this demo simultaneously.</p>
+                        <p><i class="fa fa-check-circle"></i> Try  <a class="text-primary" href="https://infinitemlmsoftware.com/register.php" target="_blank">custom demo </a>as per your configurations.</p>
+                    </div>
+                    <div class="col-md-6 b-l">
+                        <p><i class="fa fa-check-circle"></i> Once the demo is ready, you can simply move the demo to your own domain name.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-fw fa-newspaper-o fa-stack-1x fa-inverse"></i>
+                                    </span> 
+                                    Mos MLM Blog
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="skype:live:mostak.shahid">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-fw fa-skype fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    live:mostak.shahid
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="tel:+8801710702212">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-fw fa-whatsapp fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    +88 017 1070 2212
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="mailto:mostak.shahid@gmail.com">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-fw fa-envelope fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    mostak.shahid@gmail.com
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> 
           </div>
         </div>
         <!-- /page content -->

@@ -808,22 +808,38 @@
   width: 100%;
   opacity: 0;
   filter: alpha(opacity=0); }
+.m-10 {
+  margin: 10px!important; }
+.mt-10 {
+  margin-top: 10px!important; }
+.mb-10 {
+  margin-bottom: 10px!important; }
+.ml-10 {
+  margin-left: 10px!important; }
+.mr-10 {
+  margin-right: 10px!important; }
+.my-10 {
+  margin-top: 10px!important;
+  margin-bottom: 10px!important; }
+.mx-10 {
+  margin-left: 10px!important;
+  margin-right: 10px!important; }
 .m-30 {
-  margin: 30px; }
+  margin: 30px!important; }
 .mt-30 {
-  margin-top: 30px; }
+  margin-top: 30px!important; }
 .mb-30 {
-  margin-bottom: 30px; }
+  margin-bottom: 30px!important; }
 .ml-30 {
-  margin-left: 30px; }
+  margin-left: 30px!important; }
 .mr-30 {
-  margin-right: 30px; }
+  margin-right: 30px!important; }
 .my-30 {
-  margin-top: 30px;
-  margin-bottom: 30px; }
+  margin-top: 30px!important;
+  margin-bottom: 30px!important; }
 .mx-30 {
-  margin-left: 30px;
-  margin-right: 30px; }
+  margin-left: 30px!important;
+  margin-right: 30px!important; }
 .left_col {
   background: #2A3F54; }
 
