@@ -4986,5 +4986,16 @@ $(document).ready(function () {
     init_CustomNotification();
     init_autosize();
     init_autocomplete();
-
+    $('.btn-print').on('click',function(){
+        printDiv("printThis");
+    })
 });	
+
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    // document.body.style.marginTop="-45px";
+    window.print();
+    document.body.innerHTML = originalContents;
+}

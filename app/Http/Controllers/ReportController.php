@@ -15,4 +15,7 @@ class ReportController extends Controller
     public function userReportsPayout(){    	
     	return view('report.payout');
     }
+    public function userReportsPerformance(){    	
+    	return view('report.performance');
+    }
 }

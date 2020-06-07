@@ -28,6 +28,15 @@
                     </ul>
                   </li>
                   <li><a href="{{ route('user.authentication.register') }}"><i class="fa fa-user-plus"></i> Register</a></li>
+                  <li><a href="{{ route('user.order.history') }}"><i class="fa fa-shopping-cart"></i> Order History</a></li>
+                  <li><a><i class="fa fa-bookmark"></i> E-PIN <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ route('user.pin.history') }}">My E-PIN</a></li>
+                      <li><a href="{{ route('user.pin.request') }}">Request E-Pin</a></li>
+                      <li><a href="{{ route('user.pin.transfer') }}">E-Pin Transfer</a></li>
+                      <li><a href="{{ route('user.pin.purchase') }}">E-Pin Purchase</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-briefcase"></i> E-Wallet <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('user.wallet.statement') }}">E-Wallet Statement</a></li>
@@ -54,6 +63,7 @@
                       <li><a href="{{ route('user.report.commission') }}">Commission</a></li>
                       <li><a href="{{ route('user.report.sales') }}">Sales</a></li>
                       <li><a href="{{ route('user.report.payout') }}">Payout Released</a></li>
+                      <li><a href="{{ route('user.report.performance') }}">Performance</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-clone"></i>Tools <span class="fa fa-chevron-down"></span></a>

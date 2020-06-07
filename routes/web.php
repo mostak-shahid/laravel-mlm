@@ -43,6 +43,14 @@ Route::group(['middleware'=>'auth'], function(){
 		Route::get('/profile/password', 'AuthenticationController@userAuthenticationPassword')->name('user.authentication.password');
 		Route::get('/profile/pin', 'AuthenticationController@userAuthenticationPin')->name('user.authentication.pin');
 
+		Route::get('/order', 'OrderController@userOrderHistory')->name('user.order.history');
+		Route::get('/order/{id}', 'OrderController@userOrderShow')->name('user.order.show');
+
+		Route::get('/pin', 'PinController@userPinHistory')->name('user.pin.history');
+		Route::get('/pin/request', 'PinController@userPinRequest')->name('user.pin.request');
+		Route::get('/pin/transfer', 'PinController@userPinTransfer')->name('user.pin.transfer');
+		Route::get('/pin/purchase', 'PinController@userPinPurchase')->name('user.pin.purchase');
+
 		Route::get('/wallet', 'WalletController@userWalletStatement')->name('user.wallet.statement');
 		Route::get('/wallet/transfer', 'WalletController@userWalletTransfer')->name('user.wallet.transfer');
 		Route::get('/wallet/history', 'WalletController@userWalletHistory')->name('user.wallet.history');
@@ -56,6 +64,7 @@ Route::group(['middleware'=>'auth'], function(){
 		Route::get('/reports', 'ReportController@userReportsCommission')->name('user.report.commission');
 		Route::get('/reports/sales', 'ReportController@userReportsSales')->name('user.report.sales');
 		Route::get('/reports/payout', 'ReportController@userReportsPayout')->name('user.report.payout');
+		Route::get('/reports/performance', 'ReportController@userReportsPerformance')->name('user.report.performance');
 
 		Route::get('/mailbox/', 'MailboxController@index')->name('user.mailbox.index');
 		Route::get('/mailbox/compose', 'MailboxController@compose')->name('user.mailbox.compose');
