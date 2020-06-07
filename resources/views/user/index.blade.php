@@ -252,6 +252,23 @@ Overview
             </div>            
         </div>
     </div>
+    <div class="col-lg-12 mb-30">
+        <div class="x_panel h-100">            
+            <div class="x_title">Latest News</div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <img src="{{ asset('admin/production/images/cropper.jpg') }}" class="img-fluid" alt="News title">
+                        <div class="card-body">
+                            <h5 class="card-title">News title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>       
+    </div>
 </div>
 @endsection
 @section('script')
