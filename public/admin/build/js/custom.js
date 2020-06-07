@@ -4988,7 +4988,11 @@ $(document).ready(function () {
     init_autocomplete();
     $('.btn-print').on('click',function(){
         printDiv("printThis");
-    })
+    });
+    window.onafterprint = function(){
+        console.log("Printing completed...");
+        location.reload();
+    }    
 });	
 
 function printDiv(divName) {
