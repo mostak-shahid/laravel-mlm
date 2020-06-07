@@ -119,14 +119,12 @@ Genealogy Tree
         });
         var dir = "{{ asset('admin/vendors/OrgChart/')}}";
         var secondMenuHTML = '';
-        secondMenuHTML += '<div class="tooltipster-box">';
-        secondMenuHTML += '<div class="tooltipster-content">';
-        secondMenuHTML += '<div id="user_INF170549" class="p-2">';
-        secondMenuHTML += '<div class="text-center text-white bg-blue-sky">';
+        secondMenuHTML += '<div class="second-menu">';
+        secondMenuHTML += '<div class="text-center text-white bg-blue-sky p-2">';
         secondMenuHTML += '<img class="img-fluid img-circle mb-2" src="'+dir+'/img/avatar/' + data.id + '.jpg">';
         secondMenuHTML += '<p class="user-meta mb-0">INF170549<br/>sam</p>';
         secondMenuHTML += '</div>';
-        secondMenuHTML += '<div class="body_text_tree">';
+        secondMenuHTML += '<div class="p-2">';
         secondMenuHTML += '<ul class="list-unstyled mb-2">';
         secondMenuHTML += '<li class="d-table w-100">';
         secondMenuHTML += '<div class="pull-right">2018/04/11</div>';
@@ -160,10 +158,8 @@ Genealogy Tree
         secondMenuHTML += '<div class="tooltip_rank">Platinum</div>';
         secondMenuHTML += '</div>';
         secondMenuHTML += '</div>';
-        secondMenuHTML += '</div>';
-        secondMenuHTML += '</div>';
-        var secondMenu = '<div class="second-menu">'+secondMenuHTML+'</div>';
-        $node.append(secondMenuIcon).append(secondMenu);
+        //var secondMenu = '<div class="second-menu">'+secondMenuHTML+'</div>';
+        $node.append(secondMenuIcon).append(secondMenuHTML);
       }
     });
     $('#btn-reset').on('click', function (argument) {
