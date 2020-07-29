@@ -23,7 +23,7 @@ Overview
                     <div class="count">179</div>
                     <h5>Payout Released</h5>
                     <p>Lorem ipsum psdea itgum rixt.</p>
-                    <a class="hidden-link" href="{{ route('user.report.payout') }}">Read More</a>
+                    <a class="hidden-link" href="{{ route('user.wallet.payout') }}">Read More</a>
                 </div>
             </div>
             <div class="col-6 mb-30">
@@ -31,7 +31,7 @@ Overview
                     <div class="count">179</div>
                     <h5>Payout Pending</h5>
                     <p>Lorem ipsum psdea itgum rixt.</p>
-                    <a class="hidden-link" href="{{ route('user.wallet.payout.status') }}">Read More</a>
+                    <a class="hidden-link" href="{{ route('user.wallet.payout') }}">Read More</a>
                 </div>
             </div> 
             <div class="col-6 mb-30">

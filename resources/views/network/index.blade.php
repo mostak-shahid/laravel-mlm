@@ -96,18 +96,18 @@ Genealogy Tree
             }
           ]
         },
-        { 'id': '8', 'name': 'Yu Jie', 'title': 'department manager' },
-        { 'id': '9', 'name': 'Yu Li', 'title': 'department manager' },
-        { 'id': '10', 'name': 'Hong Miao', 'title': 'department manager' },
-        { 'id': '11', 'name': 'Yu Wei', 'title': 'department manager' },
-        { 'id': '12', 'name': 'Chun Miao', 'title': 'department manager' },
-        { 'id': '13', 'name': 'Yu Tie', 'title': 'department manager' }
+//        { 'id': '8', 'name': 'Yu Jie', 'title': 'department manager' },
+//        { 'id': '9', 'name': 'Yu Li', 'title': 'department manager' },
+//        { 'id': '10', 'name': 'Hong Miao', 'title': 'department manager' },
+//        { 'id': '11', 'name': 'Yu Wei', 'title': 'department manager' },
+//        { 'id': '12', 'name': 'Chun Miao', 'title': 'department manager' },
+//        { 'id': '13', 'name': 'Yu Tie', 'title': 'department manager' }
       ]
     };
 
     var oc = $('#chart-container').orgchart({
       'data' : datascource,
-      'visibleLevel': 2,
+      'visibleLevel': 4,
       'nodeContent': 'title',
       'nodeID': 'id',
       'createNode': function($node, data) {

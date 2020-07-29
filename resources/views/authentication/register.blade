@@ -1,0 +1,127 @@
+@extends('layouts.backend')
+
+@section('page-title')
+Register
+@endsection
+@section('sidebar')
+@include('user.menu')
+@endsection
+@section('content')
+<div class="x_panel">
+    <form id="reg-form" action="" method="post">
+        <div>
+            <h3>Account</h3>
+            <section>
+                <div class="form-group">
+                    <label for="position">Position <span class="text-danger">*</span></label>
+                    <select class="form-control required" id="position">
+                        <option value="">Choose...</option>
+                        <option value="left">Left Leg</option>
+                        <option value="right">Right Leg</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product">Position <span class="text-danger">*</span></label>
+                    <select class="form-control required" id="product">
+                        <option value="">Choose...</option>
+                        <option value="left">Left Leg</option>
+                        <option value="right">Right Leg</option>
+                    </select>
+                </div>
+                {{--<div class="form-group">--}}
+                    {{--<label for="product">Product <span class="text-danger">*</span></label>--}}
+                    {{--<select class="form-control required" id="product">--}}
+                        {{--<option value="">Choose...</option>--}}
+                        {{--<option value="bronze">Bronze ( 1500 )</option>--}}
+                        {{--<option value="silver">Silver ( 5000 )</option>--}}
+                        {{--<option value="basic">Membership Pack 3 ( 300 )</option>--}}
+                    {{--</select>--}}
+                {{--</div>--}}
+                {{--<div class="form-group">--}}
+                    {{--<label for="pin_code">Pin Code <span class="text-danger">*</span></label>--}}
+                    {{--<select class="form-control required" id="pin_code" required>--}}
+                        {{--<option value="">Choose...</option>--}}
+                        {{--<option value="5004009257">5004009257</option>--}}
+                        {{--<option value="7196709319">7196709319</option>--}}
+                        {{--<option value="7173202049">7173202049</option>--}}
+                        {{--<option value="5827843752">5827843752</option>--}}
+                    {{--</select>--}}
+                {{--</div>--}}
+                <div class="form-group">
+                    <label for="sponsor_id">Sponsor ID <span class="text-danger">*</span></label>
+                    <input id="sponsor_id" name="sponsor_id" type="text" class="form-control required">
+                </div>
+                <div class="form-group">
+                    <label for="placement_id">Placement ID <span class="text-danger">*</span></label>
+                    <input id="placement_id" name="placement_id" type="text" class="form-control required">
+                </div>
+            </section>
+            <h3>Contact Information</h3>
+            <section>
+                {{--Name, Date Of Birth, E-mail, Mobile No--}}
+                <label for="name">First name *</label>
+                <input id="name" name="name" type="text" class="required">
+                <label for="surname">Last name *</label>
+                <input id="surname" name="surname" type="text" class="required">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="text" class="required email">
+                <label for="address">Address</label>
+                <input id="address" name="address" type="text">
+                <p>(*) Mandatory</p>
+            </section>
+            <h3>Login Information</h3>
+            {{--Username, Password, Confirm Password,  I ACCEPT TERMS AND CONDITIONS *--}}
+            <section>
+                <ul>
+                    <li>Foo</li>
+                    <li>Bar</li>
+                    <li>Foobar</li>
+                </ul>
+            </section>
+            <h3>Address &amp; Banking</h3>
+            <section>
+                <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+            </section>
+        </div>
+    </form>
+
+</div>
+@endsection
+@section('script')
+    <!-- validator -->
+    <script src="{{ asset('admin/vendors/jquery.steps.js') }}"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="{{ asset('admin/vendors/jquery.validate.js') }}"></script>
+    <script>
+        jQuery(document).ready(function($){
+        });
+        var form = $("#reg-form");
+        form.validate({
+            errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
+        });
+        form.children("div").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            onStepChanging: function (event, currentIndex, newIndex)
+            {
+                form.validate().settings.ignore = ":disabled,:hidden";
+                return form.valid();
+            },
+            onFinishing: function (event, currentIndex)
+            {
+                form.validate().settings.ignore = ":disabled";
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex)
+            {
+                alert("Submitted!");
+            }
+        });
+    </script>
+@endsection

@@ -18,34 +18,34 @@ Mailbox
                         @csrf
                         <div class="form-group">
                             <label for="subject">Subject <span class="text-danger">*</span></label>
-                            <input type="text" id="subject" class="form-control" name="subject" required />         
+                            <input type="text" id="subject" class="form-control" name="subject" required />
                         </div>
                         <div class="form-group">
                             <label for="subject">Type</label>
                             <div class="radio-inline">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="type-admin" name="type" class="custom-control-input" value="admin" checked>
+                                    <input type="radio" id="type-admin" name="type" class="custom-control-input" value="Admin" checked>
                                     <label class="custom-control-label" for="type-admin">Admin</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="type-team" name="type" class="custom-control-input" value="team">
+                                    <input type="radio" id="type-team" name="type" class="custom-control-input" value="My Team">
                                     <label class="custom-control-label" for="type-team">My Team</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="type-internal" name="type" class="custom-control-input" value="internal">
+                                    <input type="radio" id="type-internal" name="type" class="custom-control-input" value="Internal Mail">
                                     <label class="custom-control-label" for="type-internal">Internal Mail</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="type-external" name="type" class="custom-control-input" value="external">
+                                    <input type="radio" id="type-external" name="type" class="custom-control-input" value="External Mail">
                                     <label class="custom-control-label" for="type-external">External Mail</label>
                                 </div>                                 
                             </div>        
                         </div>
                         <div id="members-group" class="form-group">
                             <select name="members[]" id="members" class="form-control select2_multiple" multiple>
-                                <option value="3">Md. Shahid Apu</option>
-                                <option value="2">Md. Mostak Apu</option>
-                                <option value="1">Md. Mostak Shahid</option>
+                                @foreach($users as $user)
+                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                @endforeach
                             </select>        
                         </div>
                         <div id="to-group" class="form-group position-relative has-feedback">
@@ -56,9 +56,13 @@ Mailbox
                             <textarea name="message" id="message" class="form-control editor"></textarea>
                         </div>
                         <button type="submit" class="btn btn-success btn-sm">Send Message</button>
+                        <input type="hidden" value="0" name="parent">
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 @endsection
 @section('style')
     <!-- Select2 -->
@@ -82,10 +86,10 @@ Mailbox
         $('#members-group,#to-group').hide();
         $("input[name='type']").change(function(){
             var type = $("input[name='type']:checked").val();
-            if(type == 'internal'){
+            if(type == 'Internal Mail'){
                 $('#members-group').show().find('select').prop('required',true);
                 $('#to-group').hide().find('input').prop('required',false);
-            } else if(type == 'external'){
+            } else if(type == 'External Mail'){
                 $('#members-group').hide().find('select').prop('required',false);
                 $('#to-group').show().find('input').prop('required',true);
             } else{
@@ -111,7 +115,7 @@ Mailbox
             var ok = $('.parsley-error').length === 0;
             $('.bs-callout-info').toggleClass('hidden', !ok);
             $('.bs-callout-warning').toggleClass('hidden', ok);
-        })
+        });
         /*.on('form:submit', function() {
             return false; // Don't submit form for this demo
         });*/

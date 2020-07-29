@@ -1749,16 +1749,24 @@ Switchery.prototype.setSpeed = function() {
  */
 
 Switchery.prototype.setSize = function() {
-  var small = 'switchery-small'
+  var exsmall = 'switchery-exsmall'
+  	, small = 'switchery-small'
     , normal = 'switchery-default'
-    , large = 'switchery-large';
+    , large = 'switchery-large'
+    , exlarge = 'switchery-exlarge';
 
   switch (this.options.size) {
+    case 'exsmall':
+      classes(this.switcher).add(exsmall)
+      break;
     case 'small':
       classes(this.switcher).add(small)
       break;
     case 'large':
       classes(this.switcher).add(large)
+      break;
+    case 'exlarge':
+      classes(this.switcher).add(exlarge)
       break;
     default:
       classes(this.switcher).add(normal)

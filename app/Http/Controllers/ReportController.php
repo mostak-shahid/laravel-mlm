@@ -12,10 +12,13 @@ class ReportController extends Controller
     public function userReportsSales(){    	
     	return view('report.sales');
     }
-    public function userReportsPayout(){    	
-    	return view('report.payout');
-    }
     public function userReportsPerformance(){    	
     	return view('report.performance');
+    }
+    public function adminBusinessSummary(){
+        return view('report.business_summary');
+    }
+    public function adminBusinessTransactions(){
+        return view('report.business_transactions');
     }
 }

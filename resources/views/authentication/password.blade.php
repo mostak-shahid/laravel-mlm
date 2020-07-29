@@ -1,32 +1,33 @@
 @extends('layouts.backend')
 
 @section('page-title')
-Change Lohin Password
+    Change Login Password
 @endsection
 @section('sidebar')
 @include('user.menu')
 @endsection
 @section('content')
 <div class="x_panel">
-    <div class="x_title">
-        <h2>Plain Page</h2>
-        <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Settings 1</a>
-                    <a class="dropdown-item" href="#">Settings 2</a>
-                </div>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-        </ul>
-        <div class="clearfix"></div>
-    </div>
     <div class="x_content">
-        Change Login Password
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <form>
+                    <div class="form-group">
+                        <label for="password">Current Password <span class="tect-danger">*</span></label><br/>
+                        <input type="password" class="form-control mr-2" name="password" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_password">New Password <span class="tect-danger">*</span></label><br/>
+                        <input type="password" class="form-control mr-2" name="new_password" id="new_password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="con_password">Confirm Password <span class="tect-danger">*</span></label><br/>
+                        <input type="password" class="form-control mr-2" name="con_password" id="con_password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success mr-0 mb-0">Update Password</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

@@ -10,331 +10,52 @@ Mailbox
 <div class="x_panel">
     <div class="x_content">
         <div class="row">
-            @include('mailbox.menu')
-            <!-- CONTENT MAIL -->
+
+        @include('mailbox.menu')
+        <!-- CONTENT MAIL -->
             <div class="col-sm-9 mail_view">
-                <div class="inbox-body table-responsive">
-                    <table id="mail-table" class="table table-borderless nowrap" cellspacing="0" width="100%">
+                <div class="inbox-body">
+                    <form action="{{route('user.mailbox.mailmanagement')}}" method="POST">
+                        @csrf
+                        <table id="mail-table" class="table table-borderless dt-responsive" cellspacing="0" width="100%">
                         <thead class="bg-light">
-                            <tr>
-                                <th class="align-middle">
-                                    <input type="checkbox" class="flat">
-                                </th>
-                                <th>
-                                    <div class="mail-select-options">
-                                        <div class="btn-group btn-group-sm" role="group">
-                                            <a class="btn btn-default" href="#" title="Report spam"><i class="fa fa-exclamation-circle"></i></a>
-                                            <a class="btn btn-default" href="#" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                            <a class="btn btn-default" href="#" title="Mark as read"><i class="fa fa-envelope-open-o"></i></a>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" class="flat">
-                                </td>
-                                <td> <a href="#" class="star stared"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Facebook</a> </td>
-                                <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">Reset your account password</a></td>
-                                <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"><i class="fa fa-paperclip"></i></a> </td>
-                                <td>13:52</td>
-                            </tr>
                         <tr>
-                            <td>
-                                <input type="checkbox" class="flat">
-                            </td>
-                            <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Google AdWords</a> </td>
-                            <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-                                Google AdWords: Ads not serving
-                            </a> 
-                        </td>
-                        <td></td>
-                        <td>09:27</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" class="flat">
-                        </td>
-                        <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Apple.com</a> </td>
-                        <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"> <span class="label label-danger">Business</span>
-                            Your apple account ID has been accessed from un-familiar location.
-                        </a> 
-                    </td>
-                    <td></td>
-                    <td>Today</td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" class="flat">
-                    </td>
-                    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">World Weather Online</a> </td>
-                    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-                        Over Throttle Alert
-                    </a> 
-                </td>
-                <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"><i class="fa fa-paperclip"></i></a> </td>
-                <td>Yesterday</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" class="flat">
-                </td>
-                <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Dropbox</a> </td>
-                <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-                    Complete your Dropbox setup!
-                </a> 
-            </td>
-            <td></td>
-            <td>4 Dec</td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" class="flat">
-            </td>
-            <td> <a href="#" class="star stared"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Arlind Nushi</a> </td>
-            <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"> <span class="label label-warning">Friends</span>
-                Work progress for Neon Project
-            </a> 
-        </td>
-        <td></td>
-        <td>28 Nov</td>
-    </tr>
-    <tr>
-        <td>
-            <input type="checkbox" class="flat">
-        </td>
-        <td> <a href="#" class="star stared"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Jose D. Gardner</a> </td>
-        <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-            Regarding to your website issues.
-        </a> 
-    </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"><i class="fa fa-paperclip"></i></a> </td>
-    <td>22 Nov</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Aurelio D. Cummins</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Steadicam operator
-    </a> 
-</td>
-<td></td>
-<td>15 Nov</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Filan Fisteku</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        You are loosing clients because your website is not responsive.
-    </a> 
-</td>
-<td></td>
-<td>02 Nov</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Instagram</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Instagram announces the new video uploadin feature.
-    </a> 
-</td>
-<td> <a href="{{route('user.mailbox.show',['id'=>1])}}"><i class="fa fa-paperclip"></i></a> </td>
-<td>26 Oct</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">James Blue</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"> <span class="label label-info">Sports</span>
-        There are 20 notifications
-    </a> 
-</td>
-<td></td>
-<td>18 Oct</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">SomeHost</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Bugs in your system.
-    </a> 
-</td>
-<td></td>
-<td>01 Sep</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star stared"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Facebook</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Reset your account password
-    </a> 
-</td>
-<td> <a href="{{route('user.mailbox.show',['id'=>1])}}"><i class="fa fa-paperclip"></i></a> </td>
-<td>13:52</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Google AdWords</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Google AdWords: Ads not serving
-    </a> 
-</td>
-<td></td>
-<td>09:27</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Apple.com</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"> <span class="label label-danger">Business</span>
-        Your apple account ID has been accessed from un-familiar location.
-    </a> 
-</td>
-<td></td>
-<td>Today</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">World Weather Online</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Over Throttle Alert
-    </a> 
-</td>
-<td> <a href="{{route('user.mailbox.show',['id'=>1])}}"><i class="fa fa-paperclip"></i></a> </td>
-<td>Yesterday</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Dropbox</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Complete your Dropbox setup!
-    </a> 
-</td>
-<td></td>
-<td>4 Dec</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star stared"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Arlind Nushi</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"> <span class="label label-warning">Friends</span>
-        Work progress for Neon Project
-    </a> 
-</td>
-<td></td>
-<td>28 Nov</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star stared"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Jose D. Gardner</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Regarding to your website issues.
-    </a> 
-</td>
-<td> <a href="{{route('user.mailbox.show',['id'=>1])}}"><i class="fa fa-paperclip"></i></a> </td>
-<td>22 Nov</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Aurelio D. Cummins</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Steadicam operator
-    </a> 
-</td>
-<td></td>
-<td>15 Nov</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Filan Fisteku</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        You are loosing clients because your website is not responsive.
-    </a> 
-</td>
-<td></td>
-<td>02 Nov</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">Instagram</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Instagram announces the new video uploadin feature.
-    </a> 
-</td>
-<td> <a href="{{route('user.mailbox.show',['id'=>1])}}"><i class="fa fa-paperclip"></i></a> </td>
-<td>26 Oct</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">James Blue</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}"> <span class="label label-info">Sports</span>
-        There are 20 notifications
-    </a> 
-</td>
-<td></td>
-<td>18 Oct</td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" class="flat">
-    </td>
-    <td> <a href="#" class="star"> <i class="fa fa-star"></i> </a> <a href="{{route('user.mailbox.show',['id'=>1])}}">SomeHost</a> </td>
-    <td> <a href="{{route('user.mailbox.show',['id'=>1])}}">
-        Bugs in your system.
-    </a> 
-</td>
-<td></td>
-<td>01 Sep</td>
-</tr>
-</tbody>
-</table>
+                            <th></th>
+                            <th class="align-middle">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="email-all">
+                                    <label class="custom-control-label" for="email-all"></label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="mail-select-options">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <button class="btn btn-default" type="submit" name="mailmanagement" value="Report spam" data-placement="top" data-toggle="tooltip" data-original-title="Report spam"><i class="fa fa-exclamation-circle"></i></button>
+                                        <button class="btn btn-default" type="submit" name="mailmanagement" value="Delete" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
+                                        <button class="btn btn-default" type="submit" name="mailmanagement" value="Mark as read" data-placement="top" data-toggle="tooltip" data-original-title="Mark as read"><i class="fa fa-envelope-open-o"></i></button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                    </table>
+                    </form>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 @endsection
 @section('style')
     <!-- Datatables -->
-    
     <link href="{{ asset('admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="{{ asset('admin/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+
 @endsection
 @section('script')
     <!-- Datatables -->
@@ -353,25 +74,78 @@ Mailbox
     <script src="{{ asset('admin/vendors/jszip/dist/jszip.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-    <!-- iCheck -->
-    <script src="{{ asset('admin/vendors/iCheck/icheck.min.js') }}"></script>
     <script>
-    jQuery(document).ready(function($){
-        $('#mail-table').DataTable({
-            "pagingType": "simple",
-            "bSort" : false,
-            "language": {
-                "lengthMenu": "Show _MENU_ emails",
-                "zeroRecords": "Nothing found - sorry",
-                "info": "Showing page _PAGE_ of _PAGES_", //Showing 1 to 10 of 24 entries
-                "infoEmpty": "No emails available",
-                "infoFiltered": "(filtered from _MAX_ total emails)"
-            }
-            // "autoWidth": false,
-            /*columnDefs: [
-                { width: 300, targets: 2 }
-            ]*/
+        jQuery(document).ready(function($){
+            $('#mail-table').DataTable({
+                "pagingType": "simple",
+                // "bSort" : false,
+                "language": {
+                    "lengthMenu": "Show _MENU_ emails",
+                    "zeroRecords": "Nothing found - sorry",
+                    "info": "Showing page _PAGE_ of _PAGES_", //Showing 1 to 10 of 24 entries
+                    "infoEmpty": "No emails available",
+                    "infoFiltered": "(filtered from _MAX_ total emails)"
+                },
+                order: [[ 0, "desc" ]],
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('user.mailbox.starred') }}",
+                },
+                columnDefs: [
+                    {
+                        "targets": [ 0 ],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [ 1 ],
+                        "orderable": false,
+                        "width": 24
+                    },
+                    {
+                        "targets": [ 2 ],
+                        "orderable": false
+                    },
+                    {
+                        "targets": [ 3 ],
+                        "orderable": false
+                    },
+                    {
+                        "targets": [ 4 ],
+                        "orderable": false
+                    }
+                ],
+                columns: [
+                    {
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
+                        data: 'checkbox',
+                        name: 'checkbox'
+                    },
+                    {
+                        data: 'stared',
+                        name: 'stared'
+                    },
+                    {
+                        data: 'subject',
+                        name: 'subject'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at',
+                    }
+                ]
+            });
+            $('#email-all').change(function() {
+                if(this.checked) {
+                    $('.custom-control-input').prop('checked',true);
+                } else {
+                    $('.custom-control-input').prop('checked',false);
+                }
+            });
         });
-    });
     </script>
 @endsection

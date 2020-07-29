@@ -2462,7 +2462,8 @@ function init_DataTables() {
                         className: "btn-sm"
                     },
                 ],
-                responsive: true
+                responsive: true,
+                autoWidth: true
             });
         }
     };

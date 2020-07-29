@@ -18,10 +18,10 @@ class WalletController extends Controller
     public function userWalletEarnings(){
     	return view('wallet.earnings');
     }
-    public function userWalletPayout(){
-    	return view('wallet.payout-request');
+    public function adminWalletRelease(){
+    	return view('wallet.release');
     }
-    public function userWalletPayoutSatus(){
-    	return view('wallet.payout-status');
+    public function adminWalletStatus(){
+    	return view('wallet.status');
     }
 }
